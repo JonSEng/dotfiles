@@ -11,6 +11,7 @@ Running the switch builds:
 
 - System settings (dark mode, key repeat, dock, Finder, trackpad)
 - Homebrew apps (casks and CLI tools)
+- Nix user packages (ripgrep, fd, fzf, jq, lazygit, Neovim, Hack Nerd Font)
 - Shell (zsh, aliases, starship prompt)
 - Editor (Neovim config)
 - Terminal (WezTerm config)
@@ -43,7 +44,8 @@ Before you run it: open the config files and change the values listed in "Make i
 1. Installs Determinate Nix, if it isn't already installed.
 2. Symlinks this repo to `~/.dotfiles`.
    This has to happen before the first build, because `home.nix` points at config files through `~/.dotfiles`.
-3. Runs the first `darwin-rebuild switch`, straight from the flake (since `darwin-rebuild` doesn't exist yet on a fresh machine).
+3. Runs the first `darwin-rebuild switch`.
+   It fetches the `darwin-rebuild` tool from the nix-darwin 26.05 release branch, then applies this repo's locked flake config.
 
 After that, `darwin-rebuild` exists and you're on the normal workflow below.
 
@@ -72,7 +74,7 @@ No separate build-and-copy step.
 This repo is mine.
 If you clone it, change these before you run `bootstrap.sh`:
 
-- **Username** `kunchen`, in four places: `flake.nix:26`, `configuration.nix:10-12`, `configuration.nix:30` (the `nix-homebrew.user` setting), and `home.nix:8-9`.
+- **Username and home path** `kunchen` / `/Users/kunchen`, in four places: `flake.nix:26`, `configuration.nix:10-12`, `configuration.nix:30` (the `nix-homebrew.user` setting), and `home.nix:8-9`.
 - **Git identity**, in `home.nix:43-46` (`kunchenguid` / `kun@kunchenguid.com`).
 - **Host label** `"mac"`, in `flake.nix:18` (the `darwinConfigurations."mac"` name) and `rebuild.sh:5` (the `#mac` at the end of the flake reference).
   Both have to match.
