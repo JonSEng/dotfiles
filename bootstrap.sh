@@ -23,7 +23,13 @@ ln -sfn "$DIR" ~/.dotfiles
 echo "==> Step 3: first darwin-rebuild switch (pinned to nix-darwin-26.05)"
 # darwin-rebuild doesn't exist yet on a fresh machine, so run it straight
 # from the flake this once. After this, rebuild.sh works normally.
-sudo nix run github:nix-darwin/nix-darwin/nix-darwin-26.05#darwin-rebuild -- \
+# sudo resets PATH to a secure default that excludes /nix/.../bin, so a
+# freshly installed `nix` would not be found under sudo even though it's
+# on PATH here. Resolve the absolute path first and invoke that instead.
+NIX_BIN="$(command -v nix)"
+sudo "$NIX_BIN" run github:nix-darwin/nix-darwin/nix-darwin-26.05#darwin-rebuild -- \
   switch --flake ~/.dotfiles#mac
+# If this still fails with "nix: command not found", open a new terminal
+# (Determinate adds nix to new shells' PATH) and re-run ./bootstrap.sh.
 
 echo "==> Done. Use ./rebuild.sh for future changes."

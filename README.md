@@ -29,6 +29,12 @@ On a brand new Mac, from a bare clone of this repo:
 ```sh
 git clone https://github.com/kunchenguid/dotfiles.git
 cd dotfiles
+```
+
+Before you run it: open the config files and change the values listed in "Make it yours" below (username, home path, git identity, host label, and Intel vs Apple Silicon), and read the Homebrew cleanup warning.
+`bootstrap.sh` applies the config to your machine, so do this first.
+
+```sh
 ./bootstrap.sh
 ```
 
@@ -41,8 +47,14 @@ cd dotfiles
 
 After that, `darwin-rebuild` exists and you're on the normal workflow below.
 
-**Before you run it**, read the warning under "Make it yours" below about Homebrew cleanup.
-It will remove Homebrew packages you didn't ask for.
+### Validate without applying
+
+Before your first switch, you can check that the config builds without touching your system:
+
+```sh
+nix flake check --no-build
+nix build .#darwinConfigurations.mac.system --dry-run
+```
 
 ## Daily use
 
@@ -74,6 +86,13 @@ Read through `brews` and `casks` before you run `bootstrap.sh` or `rebuild.sh` f
 **About `herdr`:** it's in the `brews` list.
 It's a real public Homebrew formula (`brew info herdr` finds it in homebrew-core, no tap needed), so it will install fine.
 If you don't use it, just remove it from `brews` in your copy.
+
+**Heads-up:**
+
+- `home/AGENTS.md` is my personal agent policy, and `home.nix` installs it for Claude, Codex, and opencode.
+  If you clone this repo, you'd silently inherit my agent instructions - edit or delete `home/AGENTS.md` if you don't want that.
+- The `cc` and `co` shell aliases in `home.nix` are high-agency shortcuts: `claude --dangerously-skip-permissions` and `codex --full-auto`.
+  They're convenient for me, but know what they do before you use them.
 
 ## Repo tour
 
