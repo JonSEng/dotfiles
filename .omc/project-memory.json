@@ -1,0 +1,75 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1784335108773,
+  "projectRoot": "/Users/joeng@nvidia.com/.no-mistakes/worktrees/91a8e9e0ac8d/01KXSAJ0WYV2HFJGRH849KE0M7",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "home": {
+      "path": "home",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1784335108750,
+      "keyFiles": [
+        "AGENTS.md"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "configuration.nix",
+      "accessCount": 3,
+      "lastAccessed": 1784335342961,
+      "type": "file"
+    },
+    {
+      "path": "README.md",
+      "accessCount": 1,
+      "lastAccessed": 1784335341562,
+      "type": "file"
+    },
+    {
+      "path": "AGENTS.md",
+      "accessCount": 1,
+      "lastAccessed": 1784335342028,
+      "type": "file"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "accessCount": 1,
+      "lastAccessed": 1784335361055,
+      "type": "file"
+    },
+    {
+      "path": "home/AGENTS.md",
+      "accessCount": 1,
+      "lastAccessed": 1784335362062,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}
